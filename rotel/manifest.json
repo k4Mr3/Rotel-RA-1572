@@ -1,0 +1,10 @@
+{
+  "domain": "rotel",
+  "name": "Rotel",
+  "version": "1.0.0",
+  "documentation": "https://github.com/k4Mr3/Rotel-RA-1572",
+  "dependencies": [],
+  "codeowners": ["@k4Mr3"],
+  "iot_class": "local_polling",
+  "requirements": []
+}
