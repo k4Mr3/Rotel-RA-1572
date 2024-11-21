@@ -40,7 +40,7 @@ Copy code
 2. Add the Integration (configuration.yaml):
 
 media_player:
-  - platform: rotel
+    platform: rotel
     host: 192.168.1.100
     port: 9590
     name: Rotel Amplifier
