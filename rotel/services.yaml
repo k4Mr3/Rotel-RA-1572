@@ -1,0 +1,224 @@
+set_bass:
+  name: Set Bass Level
+  description: Set bass level (-10 to +10)
+  target:
+    entity:
+      domain: media_player
+  fields:
+    level:
+      name: Bass Level
+      description: Bass level from -10 to +10
+      required: true
+      selector:
+        number:
+          min: -10
+          max: 10
+          step: 1
+
+set_treble:
+  name: Set Treble Level
+  description: Set treble level (-10 to +10)
+  target:
+    entity:
+      domain: media_player
+  fields:
+    level:
+      name: Treble Level
+      description: Treble level from -10 to +10
+      required: true
+      selector:
+        number:
+          min: -10
+          max: 10
+          step: 1
+
+set_balance:
+  name: Set Balance
+  description: Set balance (-15 to +15, negative = left, positive = right)
+  target:
+    entity:
+      domain: media_player
+  fields:
+    level:
+      name: Balance Level
+      description: Balance level from -15 (left) to +15 (right)
+      required: true
+      selector:
+        number:
+          min: -15
+          max: 15
+          step: 1
+
+set_bypass:
+  name: Set Tone Bypass
+  description: Enable or disable tone bypass
+  target:
+    entity:
+      domain: media_player
+  fields:
+    bypass:
+      name: Bypass
+      description: Enable tone bypass
+      required: true
+      selector:
+        boolean:
+
+set_speaker_a:
+  name: Set Speaker A
+  description: Enable or disable Speaker A output
+  target:
+    entity:
+      domain: media_player
+  fields:
+    enabled:
+      name: Enabled
+      description: Enable Speaker A output
+      required: true
+      selector:
+        boolean:
+
+set_speaker_b:
+  name: Set Speaker B
+  description: Enable or disable Speaker B output
+  target:
+    entity:
+      domain: media_player
+  fields:
+    enabled:
+      name: Enabled
+      description: Enable Speaker B output
+      required: true
+      selector:
+        boolean:
+
+set_dimmer:
+  name: Set Display Dimmer
+  description: Set display dimmer level (0-6)
+  target:
+    entity:
+      domain: media_player
+  fields:
+    level:
+      name: Dimmer Level
+      description: Dimmer level from 0 (brightest) to 6 (dimmest)
+      required: true
+      selector:
+        number:
+          min: 0
+          max: 6
+          step: 1
+
+set_pcusb_class:
+  name: Set PC-USB Audio Class
+  description: Set PC-USB Audio Class (1.0 or 2.0)
+  target:
+    entity:
+      domain: media_player
+  fields:
+    usb_class:
+      name: USB Class
+      description: USB Audio Class version
+      required: true
+      selector:
+        select:
+          options:
+            - "1"
+            - "2"
+
+toggle_speaker_a:
+  name: Toggle Speaker A
+  description: Toggle Speaker A output
+  target:
+    entity:
+      domain: media_player
+
+toggle_speaker_b:
+  name: Toggle Speaker B
+  description: Toggle Speaker B output
+  target:
+    entity:
+      domain: media_player
+
+toggle_dimmer:
+  name: Toggle Display Dimmer
+  description: Toggle display dimmer
+  target:
+    entity:
+      domain: media_player
+
+bass_up:
+  name: Bass Up
+  description: Increase bass level
+  target:
+    entity:
+      domain: media_player
+
+bass_down:
+  name: Bass Down
+  description: Decrease bass level
+  target:
+    entity:
+      domain: media_player
+
+treble_up:
+  name: Treble Up
+  description: Increase treble level
+  target:
+    entity:
+      domain: media_player
+
+treble_down:
+  name: Treble Down
+  description: Decrease treble level
+  target:
+    entity:
+      domain: media_player
+
+balance_left:
+  name: Balance Left
+  description: Adjust balance to the left
+  target:
+    entity:
+      domain: media_player
+
+balance_right:
+  name: Balance Right
+  description: Adjust balance to the right
+  target:
+    entity:
+      domain: media_player
+
+factory_reset:
+  name: Factory Reset
+  description: Reset unit to factory defaults
+  target:
+    entity:
+      domain: media_player
+
+set_rs232_update_mode:
+  name: Set RS232 Update Mode
+  description: Set RS232 update mode (auto/manual)
+  target:
+    entity:
+      domain: media_player
+  fields:
+    auto_mode:
+      name: Auto Mode
+      description: Enable automatic RS232 updates
+      required: true
+      selector:
+        boolean:
+
+get_device_info:
+  name: Get Device Information
+  description: Request device information (version, model, IP, MAC)
+  target:
+    entity:
+      domain: media_player
+
+get_current_status:
+  name: Refresh Current Status
+  description: Request all current status values from Rotel
+  target:
+    entity:
+      domain: media_player

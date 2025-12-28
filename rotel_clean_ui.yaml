@@ -1,0 +1,441 @@
+# Kompletny UI Rotel - BEZ dodatkowej konfiguracji
+# Skopiuj bezpośrednio do Lovelace Dashboard
+
+type: vertical-stack
+cards:
+  # Główna kontrola media player
+  - type: media-control
+    entity: media_player.rotel_amplifier
+    
+  # Kontrola Bass - zmniejszona liczba przycisków
+  - type: entities
+    title: "🎵 Bass Control"
+    show_header_toggle: false
+    entities:
+      - type: buttons
+        entities:
+          - entity: script.bass_minus_10
+            name: "Bass -10"
+            icon: mdi:volume-minus
+            tap_action:
+              action: call-service
+              service: rotel.set_bass
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: -10
+          - entity: script.bass_minus_5
+            name: "Bass -5"
+            icon: mdi:volume-minus
+            tap_action:
+              action: call-service
+              service: rotel.set_bass
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: -5
+          - entity: script.bass_0
+            name: "Bass 0"
+            icon: mdi:volume-medium
+            tap_action:
+              action: call-service
+              service: rotel.set_bass
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: 0
+          - entity: script.bass_plus_5
+            name: "Bass +5"
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: rotel.set_bass
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: 5
+          - entity: script.bass_plus_10
+            name: "Bass +10"
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: rotel.set_bass
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: 10
+
+  # Kontrola Treble
+  - type: entities
+    title: "🎼 Treble Control"
+    show_header_toggle: false
+    entities:
+      - type: buttons
+        entities:
+          - entity: script.treble_minus_10
+            name: "Treble -10"
+            icon: mdi:music-clef-treble
+            tap_action:
+              action: call-service
+              service: rotel.set_treble
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: -10
+          - entity: script.treble_minus_5
+            name: "Treble -5"
+            icon: mdi:music-clef-treble
+            tap_action:
+              action: call-service
+              service: rotel.set_treble
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: -5
+          - entity: script.treble_0
+            name: "Treble 0"
+            icon: mdi:music-clef-treble
+            tap_action:
+              action: call-service
+              service: rotel.set_treble
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: 0
+          - entity: script.treble_plus_5
+            name: "Treble +5"
+            icon: mdi:music-clef-treble
+            tap_action:
+              action: call-service
+              service: rotel.set_treble
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: 5
+          - entity: script.treble_plus_10
+            name: "Treble +10"
+            icon: mdi:music-clef-treble
+            tap_action:
+              action: call-service
+              service: rotel.set_treble
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: 10
+
+  # Kontrola Balance
+  - type: entities
+    title: "⚖️ Balance Control"
+    show_header_toggle: false
+    entities:
+      - type: buttons
+        entities:
+          - entity: script.balance_left_15
+            name: "Left -15"
+            icon: mdi:arrow-left-bold
+            tap_action:
+              action: call-service
+              service: rotel.set_balance
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: -15
+          - entity: script.balance_left_5
+            name: "Left -5"
+            icon: mdi:arrow-left
+            tap_action:
+              action: call-service
+              service: rotel.set_balance
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: -5
+          - entity: script.balance_center
+            name: "Center"
+            icon: mdi:circle-outline
+            tap_action:
+              action: call-service
+              service: rotel.set_balance
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: 0
+          - entity: script.balance_right_5
+            name: "Right +5"
+            icon: mdi:arrow-right
+            tap_action:
+              action: call-service
+              service: rotel.set_balance
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: 5
+          - entity: script.balance_right_15
+            name: "Right +15"
+            icon: mdi:arrow-right-bold
+            tap_action:
+              action: call-service
+              service: rotel.set_balance
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: 15
+
+  # Kontrola głośników i bypass
+  - type: entities
+    title: "🔊 Speakers & Bypass"
+    show_header_toggle: false
+    entities:
+      - type: buttons
+        entities:
+          - entity: script.toggle_speaker_a
+            name: "Toggle Speaker A"
+            icon: mdi:speaker
+            tap_action:
+              action: call-service
+              service: rotel.toggle_speaker_a
+              target:
+                entity_id: media_player.rotel_amplifier
+          - entity: script.toggle_speaker_b
+            name: "Toggle Speaker B"
+            icon: mdi:speaker
+            tap_action:
+              action: call-service
+              service: rotel.toggle_speaker_b
+              target:
+                entity_id: media_player.rotel_amplifier
+          - entity: script.bypass_on
+            name: "Bypass ON"
+            icon: mdi:tune-variant
+            tap_action:
+              action: call-service
+              service: rotel.set_bypass
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                bypass: true
+          - entity: script.bypass_off
+            name: "Bypass OFF"
+            icon: mdi:tune
+            tap_action:
+              action: call-service
+              service: rotel.set_bypass
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                bypass: false
+
+  # Kontrola wyświetlacza
+  - type: entities
+    title: "💡 Display Dimmer"
+    show_header_toggle: false
+    entities:
+      - type: buttons
+        entities:
+          - entity: script.dimmer_0
+            name: "Brightest (0)"
+            icon: mdi:brightness-7
+            tap_action:
+              action: call-service
+              service: rotel.set_dimmer
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: 0
+          - entity: script.dimmer_3
+            name: "Medium (3)"
+            icon: mdi:brightness-5
+            tap_action:
+              action: call-service
+              service: rotel.set_dimmer
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: 3
+          - entity: script.dimmer_6
+            name: "Dimmest (6)"
+            icon: mdi:brightness-3
+            tap_action:
+              action: call-service
+              service: rotel.set_dimmer
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                level: 6
+          - entity: script.toggle_dimmer
+            name: "Toggle Dimmer"
+            icon: mdi:brightness-auto
+            tap_action:
+              action: call-service
+              service: rotel.toggle_dimmer
+              target:
+                entity_id: media_player.rotel_amplifier
+
+  # Ustawienia USB i RS232
+  - type: entities
+    title: "Settings"
+    show_header_toggle: false
+    entities:
+      - type: buttons
+        entities:
+          - entity: script.usb_class_1
+            name: "USB Class 1.0"
+            icon: mdi:usb
+            tap_action:
+              action: call-service
+              service: rotel.set_pcusb_class
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                usb_class: "1"
+          - entity: script.usb_class_2
+            name: "USB Class 2.0"
+            icon: mdi:usb
+            tap_action:
+              action: call-service
+              service: rotel.set_pcusb_class
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                usb_class: "2"
+          - entity: script.auto_rs232
+            name: "Auto RS232"
+            icon: mdi:update
+            tap_action:
+              action: call-service
+              service: rotel.set_rs232_update_mode
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                auto_mode: true
+          - entity: script.manual_rs232
+            name: "Manual RS232"
+            icon: mdi:update
+            tap_action:
+              action: call-service
+              service: rotel.set_rs232_update_mode
+              target:
+                entity_id: media_player.rotel_amplifier
+              service_data:
+                auto_mode: false
+
+  # Przyciski step-by-step
+  - type: entities
+    title: "Fine Tuning"
+    show_header_toggle: false
+    entities:
+      - type: buttons
+        entities:
+          - entity: script.bass_up
+            name: "Bass +"
+            icon: mdi:plus
+            tap_action:
+              action: call-service
+              service: rotel.bass_up
+              target:
+                entity_id: media_player.rotel_amplifier
+          - entity: script.bass_down
+            name: "Bass -"
+            icon: mdi:minus
+            tap_action:
+              action: call-service
+              service: rotel.bass_down
+              target:
+                entity_id: media_player.rotel_amplifier
+          - entity: script.treble_up
+            name: "Treble +"
+            icon: mdi:plus
+            tap_action:
+              action: call-service
+              service: rotel.treble_up
+              target:
+                entity_id: media_player.rotel_amplifier
+          - entity: script.treble_down
+            name: "Treble -"
+            icon: mdi:minus
+            tap_action:
+              action: call-service
+              service: rotel.treble_down
+              target:
+                entity_id: media_player.rotel_amplifier
+
+  # Akcje systemowe
+  - type: entities
+    title: "System Actions"
+    show_header_toggle: false
+    entities:
+      - type: buttons
+        entities:
+          - entity: script.refresh_status
+            name: "Refresh Status"
+            icon: mdi:refresh
+            tap_action:
+              action: call-service
+              service: rotel.get_current_status
+              target:
+                entity_id: media_player.rotel_amplifier
+          - entity: script.device_info
+            name: "Device Info"
+            icon: mdi:information
+            tap_action:
+              action: call-service
+              service: rotel.get_device_info
+              target:
+                entity_id: media_player.rotel_amplifier
+
+  # Status - pokazuje wszystkie aktualne wartości
+  - type: entities
+    title: "Current Status"
+    show_header_toggle: false
+    entities:
+      # Podstawowe parametry audio
+      - entity: media_player.rotel_amplifier
+        type: attribute
+        attribute: bass
+        name: "Bass Level"
+        suffix: " dB"
+      - entity: media_player.rotel_amplifier
+        type: attribute
+        attribute: treble
+        name: "Treble Level"
+        suffix: " dB"
+      - entity: media_player.rotel_amplifier
+        type: attribute
+        attribute: balance
+        name: "Balance"
+      - entity: media_player.rotel_amplifier
+        type: attribute
+        attribute: bypass
+        name: "Tone Bypass"
+      
+      # Głośniki i wyjścia
+      - entity: media_player.rotel_amplifier
+        type: attribute
+        attribute: speaker_a
+        name: "Speaker A"
+      - entity: media_player.rotel_amplifier
+        type: attribute
+        attribute: speaker_b
+        name: "Speaker B"
+      
+      # Wyświetlacz i ustawienia
+      - entity: media_player.rotel_amplifier
+        type: attribute
+        attribute: dimmer
+        name: "Dimmer Level"
+      - entity: media_player.rotel_amplifier
+        type: attribute
+        attribute: pcusb_class
+        name: "PC-USB Class"
+      - entity: media_player.rotel_amplifier
+        type: attribute
+        attribute: update_mode
+        name: "Update Mode"
+      
+      # Informacje cyfrowe
+      - entity: media_player.rotel_amplifier
+        type: attribute
+        attribute: frequency
+        name: "Digital Frequency"
+        suffix: " kHz"
+
