@@ -41,40 +41,48 @@ To ensure that your Rotel amplifier can listen for commands and respond to Home 
 
 ## Installation
 
-### 1. Create the `custom_components` Folder (if it doesn't exist):
+### Method 1: Via HACS (Recommended)
 
-- Inside the `/config` directory, check if there is a folder named `custom_components`.
-- If it doesn't exist, create a new folder named `custom_components`.
+1. Open **HACS** in your Home Assistant dashboard.
+2. Click the three dots in the top-right corner and select **Custom repositories**.
+3. Paste the URL of this repository into the **Repository** field.
+4. Select **Integration** as the category and click **Add**.
+5. Find the **Rotel RA-1572** integration in the HACS list and click **Download**.
+6. Restart Home Assistant.
 
-### 2. Copy the `rotel` Folder:
+### Method 2: Manual Installation
 
-- Place the `rotel` folder (with all its contents) inside the `custom_components` folder.
+1. Navigate to your Home Assistant `/config` directory.
+2. If it doesn't exist, create a folder named `custom_components`.
+3. Create a new folder named `rotel` inside `custom_components`.
+4. Copy all files from the `custom_components/rotel/` directory of this repository into that folder.
+5. Restart Home Assistant.
 
-### 3. Add the Integration (`configuration.yaml`):
+---
 
-Add the following configuration to your `configuration.yaml` file:
+## Configuration
+
+Once the integration is installed, you need to configure it via your `configuration.yaml` file. Add the following block:
 
 ```yaml
 media_player:
-- platform: rotel
-  host: 192.168.1.100
-  port: 9590
-  name: Rotel Amplifier
-  max_volume: 60  # Optional: Maximum volume limit (1-96, default: 96)
+  - platform: rotel
+    host: 192.168.1.100
+    port: 9590
+    name: Rotel Amplifier
+    max_volume: 60  # Optional: Maximum volume limit (1-96, default: 96)
 ```
-
-### 4. Restart Home Assistant
 
 ---
 
 ## Example Lovelace UI
 
-This repository includes `rotel_clean_ui.yaml` - a comprehensive example UI for Lovelace dashboards.
+This repository includes [rotel_clean_ui.yaml](examples/rotel_clean_ui.yaml) - a comprehensive example UI for Lovelace dashboards.
 
 **⚠️ Important Note**: This UI is primarily designed for **debugging and testing purposes**. It includes all available controls and status displays, making it quite extensive and not optimized for daily use. Consider it a starting point to create your own customized interface.
 
 **To use the example UI:**
-1. Copy the contents of `rotel_clean_ui.yaml`
+1. Copy the contents of [rotel_clean_ui.yaml](examples/rotel_clean_ui.yaml)
 2. Paste it into your Lovelace dashboard (raw configuration editor)
 3. Customize it according to your needs
 
